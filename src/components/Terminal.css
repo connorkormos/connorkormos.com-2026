@@ -28,15 +28,15 @@
 }
 
 .terminalContainer.expanded {
-
+  
   .terminalTopBar {
     height: 5%;
   }
-
+  
   .terminalButtons {
     margin-left: 0;
   }
-
+  
   .terminalContent {
     height: 95%;
   }
@@ -107,6 +107,19 @@
   padding: 0.5rem 1rem;
   box-sizing: border-box;
   overflow-y: scroll;
+}
+
+@media (max-width: 768px) {
+  .terminalContainer, .terminalContainer.expanded {
+    position: relative;
+    width: 100%;
+    font-size: .95rem;
+    /* left: 0; */
+    /* aspect-ratio: auto; */
+    .terminalContent {
+      padding: 0.25rem 0.5rem;
+    }
+  }
 }
 
 .terminalPrompt {

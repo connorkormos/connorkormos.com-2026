@@ -127,7 +127,7 @@ export default function Hello({
     <div
       className={`flexColumn spaceEvenly helloContainer${terminalIsExpanded ? " expanded" : ""}`}
     >
-      <div>
+      <div className="helloHeaderWrapper">
         <h1 className="titleMain helloString">Connor Kormos</h1>
         <h2 className="titleSecondary iAmString">Web Developer</h2>
         {/* <h1

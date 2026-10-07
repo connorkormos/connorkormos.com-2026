@@ -12,6 +12,29 @@
   transition: margin-top 0.3s ease-in-out;
 }
 
+@media (max-width: 768px) {
+
+  .helloContainer {
+    width: 100%;
+    .helloHeaderWrapper {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      /* margin-right: auto; */
+      .helloString, .iAmString {
+        margin: 0 auto;
+      }
+      .helloString {
+        font-size: 3rem;
+      }
+      .iAmString {
+        font-size: 2.25rem;
+      }
+    }
+  }
+}
+
 .helloContainer.expanded {
   /* margin-top: 100%; */
 

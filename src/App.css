@@ -70,6 +70,10 @@
 }
 
 @media (max-width: 768px) {
+  .app {
+    padding-top: 2rem;
+    gap: 2.5rem;
+  }
   .titleMain, .titleSecondary {
     text-align: center;
   }

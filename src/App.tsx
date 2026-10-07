@@ -10,13 +10,16 @@ import "./App.css";
 
 function App() {
   const [terminalIsExpanded, setTerminalIsExpanded] = useState(false);
+  const isMobile = window.innerWidth <= 768;
 
   return (
     <div
       className="app"
     >
       <div
-        className={`${terminalIsExpanded ? "flexColumnContentContainer" : "flexRowContentContainer"}`}
+        className={`${!isMobile ? terminalIsExpanded ? "flexColumnContentContainer" : "flexRowContentContainer" : "flexColumnContentContainer"}`}
+        // fix this ismobile tertiary condition for styling
+        style={isMobile ? { gap: '2.5rem'} : undefined}
       >
         <Hello terminalIsExpanded={terminalIsExpanded} />
         <Terminal
