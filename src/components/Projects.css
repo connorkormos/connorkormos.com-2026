@@ -55,6 +55,8 @@
 @media (max-width: 768px) {
    .projectCardContainer {
       width: 100%;
+      height: fit-content;
+      padding-bottom: 0;
    }
 }
 

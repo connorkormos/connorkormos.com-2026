@@ -18,7 +18,7 @@ export default function TechStack() {
 
   return (
     <div className="techStackContainer">
-      <h1>Additional Technologies</h1>
+      <h1 className="titleSecondary">Additional Technologies</h1>
       <div className="techStackItemsWrapper">
         {additionalTech.map((tech) => (
           <TechStackItem key={tech.name} tech={tech} />

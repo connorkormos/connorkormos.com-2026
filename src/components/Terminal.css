@@ -113,7 +113,7 @@
   .terminalContainer, .terminalContainer.expanded {
     position: relative;
     width: 100%;
-    font-size: .95rem;
+    font-size: .75rem;
     /* left: 0; */
     /* aspect-ratio: auto; */
     .terminalContent {

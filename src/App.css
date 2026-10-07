@@ -77,4 +77,10 @@
   .titleMain, .titleSecondary {
     text-align: center;
   }
+  .titleMain {
+    /* font-size: 2rem; */
+  }
+  .titleSecondary {
+    font-size: 1.5rem;
+  }
 }

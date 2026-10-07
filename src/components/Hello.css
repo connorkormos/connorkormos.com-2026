@@ -12,35 +12,12 @@
   transition: margin-top 0.3s ease-in-out;
 }
 
-@media (max-width: 768px) {
-
-  .helloContainer {
-    width: 100%;
-    .helloHeaderWrapper {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      /* margin-right: auto; */
-      .helloString, .iAmString {
-        margin: 0 auto;
-      }
-      .helloString {
-        font-size: 3rem;
-      }
-      .iAmString {
-        font-size: 2.25rem;
-      }
-    }
-  }
-}
-
 .helloContainer.expanded {
   /* margin-top: 100%; */
-
+  
   transition: margin-top 0.3s ease-in-out;
   margin-top: calc(5rem + (9 / 16) * 100%);
-
+  
   width: 100%;
   aspect-ratio: auto;
 }
@@ -82,17 +59,11 @@
 
 .helloButtonsWrapper {
   position: relative;
-  /* width: 65%; */
   width: 100%;
-  /* height: 2.5rem; */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   row-gap: 1rem;
-  /* width: 100%; */
-  /* vertical-align: center; */
-  /* align-items: center; */
-  /* font-size: 1.1rem; */
 }
 
 .helloButton {
@@ -108,14 +79,8 @@
   text-decoration: none;
   color: inherit;
   height: 2.5rem;
-
-  /* height: 100%; */
   display: flex;
   align-items: center;
-  /* height: 3.5rem; */
-  /* width: fit-content; */
-  /* width: min(max-content, 100%); */
-  /* height: 100%; */
   width: auto;
 }
 
@@ -126,9 +91,6 @@
 
 i[class^="devicon-"] {
   font-size: 110%;
-  /* height: 100%; */
-  /* font-size: 1.5rem; */
-  /* margin-left: 0.5rem; */
 }
 
 .helloButtonReactIcon {
@@ -138,8 +100,37 @@ i[class^="devicon-"] {
 
 .helloButtonLogoLabel {
   position: relative;
-  /* height: 100%; */
   display: flex;
-  /* vertical-align: top; */
   margin-right: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+
+  .helloContainer {
+    width: 100%;
+    .helloHeaderWrapper {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      /* margin-right: auto; */
+      .helloString, .iAmString {
+        margin: 0 auto;
+      }
+      .helloString {
+        font-size: 2.5rem;
+      }
+      .iAmString {
+        font-size: 2rem;
+      }
+    }
+    .helloButtonsWrapper {
+      font-size: 0.85rem;
+      column-gap: 0.5rem;
+      .helloButton {
+        padding: 0.5rem;
+        height: auto;
+      }
+    }
+  }
 }
