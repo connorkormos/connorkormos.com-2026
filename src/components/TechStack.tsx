@@ -4,6 +4,7 @@ import "./TechStack.css";
 import TechStackItem from "./TechStackItem";
 
 export default function TechStack() {
+  
   const additionalTechOrder: string[] = ["nextJs", "jQuery", "bootstrap", "vite", "socketIo", "php", "sql", "mySql", "docker", "postman", "aws", "vercel", "railway", "git", "npm", "linux"]
   
   const additionalTech: typeof techStackSources[keyof typeof techStackSources][] = [];

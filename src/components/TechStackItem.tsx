@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./TechStack.css";
 
 export default function TechStackItem({ tech }: { tech: any }) {
+  
   const [isHovered, setIsHovered] = useState(false);
 
   return (

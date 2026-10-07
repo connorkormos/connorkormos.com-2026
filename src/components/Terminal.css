@@ -4,7 +4,8 @@
   top: 0;
   right: 0;
   /* width: 35rem; */
-  width: 45%;
+  /* width: 45%; */
+  width: 55%;
   /* height: 100%; */
   aspect-ratio: 16/9;
   background-color: #1e1e1e;
@@ -19,10 +20,26 @@
 
 .terminalContainer.expanded {
   font-size: 1.1rem;
-  width: 70rem;
+  width: 100%;
+  /* width: 70rem; */
   aspect-ratio: 16/9;
   transition: font-size 0.3s ease-in-out, height 0.3s ease-in-out, width 0.3s ease-in-out, aspect-ratio 0.3s ease-in-out;
   /* transition: all 0.3s ease-in-out; */
+}
+
+.terminalContainer.expanded {
+
+  .terminalTopBar {
+    height: 5%;
+  }
+
+  .terminalButtons {
+    margin-left: 0;
+  }
+
+  .terminalContent {
+    height: 95%;
+  }
 }
 
 .terminalContainer,
@@ -73,16 +90,19 @@
 .terminalButton.red {
   background-color: #ff5f56;
 }
+
 .terminalButton.yellow {
   background-color: #ffbd2e;
 }
+
 .terminalButton.green {
   background-color: #27c93f;
 }
 
 .terminalContent {
   position: relative;
-  height: 95%;
+  /* height: 95%; */
+  height: 90%;
   width: 100%;
   padding: 0.5rem 1rem;
   box-sizing: border-box;

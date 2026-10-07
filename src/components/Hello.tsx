@@ -129,7 +129,7 @@ export default function Hello({
     >
       <div>
         <h1 className="titleMain helloString">Connor Kormos</h1>
-        <h2 className="titleSecondary iAmString">Software Engineer</h2>
+        <h2 className="titleSecondary iAmString">Web Developer</h2>
         {/* <h1
           className="titleMain helloString"
         >

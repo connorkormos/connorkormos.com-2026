@@ -67,6 +67,8 @@
 .reactFlowElement {
   background: transparent;
   margin: auto;
+  /* max-height: min-content; */
+  /* overflow: visible !important; */
   overflow: visible !important;
   /* position: relative; */
   border: none;

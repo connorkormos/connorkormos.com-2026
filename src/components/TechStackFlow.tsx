@@ -35,6 +35,9 @@ type TechStackNode = Node<TechStackData>;
 // ];
 
 export default function TechStackFlow() {
+
+  const isMobile = window.innerWidth <= 768;
+
   const onNodesChange = useCallback(
     (changes: NodeChange<TechStackNode>[]) =>
       setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot)),
@@ -237,6 +240,7 @@ export default function TechStackFlow() {
       cancelAnimationFrame(frameId);
     };
   }, []);
+
   return (
     <div className="mainContentContainer techStackContainer">
       {/* <h1 style={{ margin: "auto", textAlign: "center" }}> */}
@@ -245,7 +249,7 @@ export default function TechStackFlow() {
       </h1>
       {/* <div style={{height: "45rem", width: "auto" }}> */}
       {/* <div style={{height: 'clamp(10vh, 45rem, 90vh)', width: 'clamp(50%, 45rem, 90%)', margin: 'auto'}}> */}
-      <div style={{ width: '100%', height: 'clamp(10vh, 55rem, 90vh)', position: 'relative', margin: 'auto', }}>
+      <div style={{ width: '100%', height: `clamp(10vh, ${isMobile ? '25rem' : '55rem'}, 75vh)`, position: 'relative', margin: 'auto', }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -263,6 +267,7 @@ export default function TechStackFlow() {
           preventScrolling={false}
           zoomOnDoubleClick={false}
           panOnDrag={false}
+          autoPanOnNodeDrag={false}
           // autoPanOnNodeDrag={false}
           // autoPanOnConnect={false}
           // zoomOnPinch={false}

@@ -5,8 +5,9 @@
 
 .app {
   position: relative;
-  width: clamp(50%, 70rem, 90%);
+  width: clamp(25%, 65rem, 90%);
   /* width: 70rem; */
+  /* font-size: 12px; */
   min-height: 100vh;
   margin: auto;
   padding: 5rem 0;
@@ -68,3 +69,8 @@
   margin: 1rem auto;
 }
 
+@media (max-width: 768px) {
+  .titleMain, .titleSecondary {
+    text-align: center;
+  }
+}
