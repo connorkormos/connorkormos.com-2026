@@ -29,7 +29,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
       },
       body: JSON.stringify({
         query: `query($from: DateTime!, $to: DateTime!) {
-          user(login: "connork97") {
+          user(login: "connorkormos") {
             contributionsCollection(from: $from, to: $to) {
               contributionCalendar {
                 totalContributions

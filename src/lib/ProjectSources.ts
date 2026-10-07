@@ -25,7 +25,7 @@ export const ProjectsSources: ProjectSource[] = [
          mediaType: "image",
       mediaSource: resumeImage,
       liveDemoUrl: "https://free-resume-builder.up.railway.app/home",
-      githubUrl: "https://github.com/connork97/Resume-Builder",
+      githubUrl: "https://github.com/connorkormos/Resume-Builder",
       techStack: ["React", "JavaScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
    },
    {
@@ -36,7 +36,7 @@ export const ProjectsSources: ProjectSource[] = [
          mediaType: "image",
       mediaSource: peakSyncImage,
       liveDemoUrl: "https://peaksync.onrender.com/",
-      githubUrl: "https://github.com/connork97/peaksync",
+      githubUrl: "https://github.com/connorkormos/peaksync",
       techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Render", "AWS", "Railway"],
    },
    {
@@ -69,7 +69,7 @@ export const ProjectsSources: ProjectSource[] = [
       mediaType: "image",
       mediaSource: shadleImage,
       liveDemoUrl: "https://shadle.web.app",
-      githubUrl: "https://github.com/connork97/shadle",
+      githubUrl: "https://github.com/connorkormos/shadle",
       techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Firebase", "Render", "AWS", "Railway"],
    },
    {
@@ -80,7 +80,7 @@ export const ProjectsSources: ProjectSource[] = [
       mediaType: "image",
       mediaSource: portfolioImage,
       liveDemoUrl: "https://www.connorkormos.com",
-      githubUrl: "https://github.com/connork97/connorkormos.com-2026",
+      githubUrl: "https://github.com/connorkormos/connorkormos.com-2026",
       techStack: ["Next.js", "React", "TypeScript", "HTML", "CSS", "Context API", "React Router", "Vercel"],
    }
 ];

@@ -169,7 +169,7 @@ export default function GitHub() {
         )}
         <span className="textSecondary">
           <a
-            href="https://github.com/connork97"
+            href="https://github.com/connorkormos"
             target="_blank"
             rel="noopener noreferrer"
           >

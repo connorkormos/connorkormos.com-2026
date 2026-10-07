@@ -33,7 +33,7 @@ const baseConnor = {
   location: "Orange County, CA",
   phone: "(714)795-9351",
   email: "connorkormos@gmail.com",
-  gitHub: "https://github.com/connork97",
+  gitHub: "https://github.com/connorkormos",
   linkedIn: "https://www.linkedin.com/in/connorkormos/",
 };
 

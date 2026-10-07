@@ -143,8 +143,8 @@ export default function Hello({
         </h2> */}
       </div>
       <div className="introText">
-        I'm a full-stack software engineer who enjoys building modern, practical
-        web applications and solving problems through clean, thoughtful code.
+        I'm a full-stack web developer who enjoys building modern, practical
+        applications and solving problems through clean, thoughtful code.
       </div>
       <div className="flexRow spaceBetween helloButtonsWrapper">
         <a
@@ -155,10 +155,7 @@ export default function Hello({
         >
             connorkormos@gmail.com
           <FaEnvelope className="helloButtonReactIcon" />
-          {/* <span style={{ position: 'relative' }}> */}
-            {/* </span> */}
         </a>
-        {/* call me */}
         <a
           className="helloButton helloButtonLink"
           href="tel:+1234567890"
@@ -170,7 +167,7 @@ export default function Hello({
         </a>
         <a
           className="helloButton helloButtonLink"
-          href="https://www.github.com/connork97"
+          href="https://www.github.com/connorkormos"
           target="_blank"
           rel="noopener noreferrer"
         >
