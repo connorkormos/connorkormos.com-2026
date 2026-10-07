@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import {
   ReactFlow,
   Handle,
@@ -11,6 +11,7 @@ import {
   type EdgeChange,
   type Node,
   type NodeChange,
+  type ReactFlowInstance,
   // type CoordinateExtent,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
@@ -57,12 +58,12 @@ export default function TechStackFlow() {
           // height: "40px",
           filter:
             techStackItem.name === "Flask" ||
-            techStackItem.name === "SQLAlchemy"
+              techStackItem.name === "SQLAlchemy"
               ? "brightness(0) invert(1)"
               : "none",
         }}
 
-        // style={{width: "40px", height: "40px" }}
+      // style={{width: "40px", height: "40px" }}
       />
       <Handle id="top" type="source" position={Position.Top} />
       <Handle id="top" type="target" position={Position.Top} />
@@ -155,6 +156,7 @@ export default function TechStackFlow() {
   ];
 
   initialNodes.forEach((node) => {
+    node.className = "reactFlowTechNode";
     node.data.label = techStackNodeLabel(
       techStackSources[node.id as keyof typeof techStackSources],
     );
@@ -205,12 +207,36 @@ export default function TechStackFlow() {
   initialEdges.forEach((edge) => {
     // edge.type = "smoothstep";
     edge.animated = true;
-     edge.style = { stroke: "var(--color-main-lighter)" };
+    edge.style = { stroke: "var(--color-main-lighter)" };
   });
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
   const [hoveredTech, setHoveredTech] = useState<TechStackNode | null>(null);
 
+
+  const flowRef = useRef<ReactFlowInstance<TechStackNode, Edge> | null>(null);
+
+  useEffect(() => {
+    let frameId = 0;
+
+    const recenter = () => {
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(() => {
+        const flow = flowRef.current;
+        if (!flow) return;
+
+        const zoom = flow.getZoom();
+        void flow.fitView({ minZoom: zoom, maxZoom: zoom });
+      });
+    };
+
+    window.addEventListener("resize", recenter);
+
+    return () => {
+      window.removeEventListener("resize", recenter);
+      cancelAnimationFrame(frameId);
+    };
+  }, []);
   return (
     <div className="mainContentContainer techStackContainer">
       {/* <h1 style={{ margin: "auto", textAlign: "center" }}> */}
@@ -219,7 +245,7 @@ export default function TechStackFlow() {
       </h1>
       {/* <div style={{height: "45rem", width: "auto" }}> */}
       {/* <div style={{height: 'clamp(10vh, 45rem, 90vh)', width: 'clamp(50%, 45rem, 90%)', margin: 'auto'}}> */}
-      <div style={{width: '100%', height: '55rem', position: 'relative', marginTop: '-5rem', marginBottom: '2.5rem'}}>
+      <div style={{ width: '100%', height: 'clamp(10vh, 55rem, 90vh)', position: 'relative', margin: 'auto', }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -228,18 +254,20 @@ export default function TechStackFlow() {
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           // nodeExtent={nodeExtent}
+          onInit={(instance) => {
+            flowRef.current = instance;
+          }}
           fitView
-          panOnDrag={false}
           panOnScroll={false}
-          preventScrolling={false}
-          autoPanOnNodeDrag={false}
-          autoPanOnConnect={false}
           zoomOnScroll={false}
-          zoomOnPinch={false}
+          preventScrolling={false}
           zoomOnDoubleClick={false}
+          panOnDrag={false}
+          // autoPanOnNodeDrag={false}
+          // autoPanOnConnect={false}
+          // zoomOnPinch={false}
           colorMode="system"
           className="reactFlowElement"
-          // style={{background: "transparent"}}
         >
           {hoveredTech && (
             <NodeToolbar

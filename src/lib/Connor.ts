@@ -7,8 +7,9 @@ const baseConnor = {
   age: 29,
   sex: "Male",
   roles: [
-    "Software Engineer",
     "Web Developer",
+    "Software Developer",
+    "Software Engineer",
     "Full Stack Developer",
     "Front End Developer",
     "Back End Developer",

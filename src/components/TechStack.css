@@ -1,9 +1,9 @@
 .techStackItemsWrapper {
    display: grid;
-   grid-template-columns: repeat(8, minmax(0, 6rem));
+   grid-template-columns: repeat(8, minMax(0, 6rem));
    column-gap: clamp(0.5rem, 3vw, 3rem);
    row-gap: clamp(1rem, 4vw, 3rem);
-   justify-content: space-around;
+   justify-content: space-between;
 }
 
 .techStackRow {
@@ -11,7 +11,7 @@
    flex-direction: row;
    flex-wrap: wrap;
    /* gap: 1rem; */
-   justify-content: space-around;
+   justify-content: space-between;
 }
 
 

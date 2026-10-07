@@ -14,7 +14,6 @@ function App() {
   return (
     <div
       className="app"
-      style={{ display: "flex", flexDirection: "column", gap: "5rem" }}
     >
       <div
         className={`${terminalIsExpanded ? "flexColumnContentContainer" : "flexRowContentContainer"}`}
