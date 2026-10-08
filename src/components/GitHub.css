@@ -54,6 +54,7 @@
       .gitHubContributionWeek {
         font-size: 10px;
         .gitHubContributionDay {
+          width: 75%;
           border-radius: 1px;
         }
       }

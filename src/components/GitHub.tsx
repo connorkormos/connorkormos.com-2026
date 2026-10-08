@@ -102,7 +102,7 @@ export default function GitHub() {
             position: "relative",
             height: 0,
             width: 0,
-            bottom: `${ !isMobile ? monthLabel !== "Jan" ? "1.5rem" : "70.5%" : monthLabel !== 'Jan' ? '1.25rem': '92.5%'}`,
+            bottom: `${ !isMobile ? monthLabel !== "Jan" ? "1.5rem" : "calc((4 / 7) * 100% + 1.5rem)" : monthLabel !== 'Jan' ? '1rem': 'calc((4 / 7) * 100% + 1rem)'}`,
             // Bottom is imperfect, but very close for now
           }}
         >
