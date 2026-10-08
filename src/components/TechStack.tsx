@@ -5,8 +5,14 @@ import TechStackItem from "./TechStackItem";
 
 export default function TechStack() {
   
-  const additionalTechOrder: string[] = ["nextJs", "jQuery", "bootstrap", "vite", "socketIo", "php", "sql", "mySql", "docker", "postman", "aws", "vercel", "railway", "git", "npm", "linux"]
+  const isMobile = window.innerWidth <= 768;
+
+  let additionalTechOrder: string[] = ["nextJs", "jQuery", "bootstrap", "vite", "socketIo", "php", "sql", "mySql", "docker", "postman", "aws", "vercel", "railway", "git", "npm", "linux"]
   
+  if (isMobile) {
+    additionalTechOrder.splice(additionalTechOrder.indexOf('npm'), 1);
+  }
+
   const additionalTech: typeof techStackSources[keyof typeof techStackSources][] = [];
 
   additionalTechOrder.forEach((techName) => {

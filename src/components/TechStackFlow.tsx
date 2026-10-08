@@ -78,82 +78,113 @@ export default function TechStackFlow() {
       <Handle id="right" type="target" position={Position.Right} />
     </div>
   );
-  {
-  }
+
+  const offset = isMobile ? 25 : 0;
+
+  const nodePlacements = {
+    row1: {
+      x: [-300, -125, 125, 300],
+      y: [-300 - offset * 2.25, -275 - offset * 2],
+    },
+    row2: {
+      x: [-220, 0, 220],
+      y: [-175, -125, -175],
+    },
+    row3: {
+      x: [-200, 0, 200],
+      y: [-25 + offset, 25 + offset, -25 + offset],
+    },
+    row4: {
+      x: [0],
+      y: [175 + offset * 2],
+    },
+  };
+
   const initialNodes: TechStackNode[] = [
     {
       id: "javaScript",
-      position: { x: -300, y: -300 },
+      // position: { x: -300, y: -300 },
+      position: { x: nodePlacements.row1.x[0], y: nodePlacements.row1.y[0] },
       data: {
         label: techStackNodeLabel(techStackSources.javaScript),
       },
     },
     {
       id: "typeScript",
-      position: { x: -125, y: -275 },
+      // position: { x: -125, y: -275 },
+      position: { x: nodePlacements.row1.x[1], y: nodePlacements.row1.y[1] },
       data: {
         label: techStackNodeLabel(techStackSources.typeScript),
       },
     },
     {
       id: "html",
-      position: { x: 125, y: -275 },
+      // position: { x: 125, y: -275 },
+      position: { x: nodePlacements.row1.x[2], y: nodePlacements.row1.y[1] },
       data: {
         label: techStackNodeLabel(techStackSources.html),
       },
     },
     {
       id: "css",
-      position: { x: 300, y: -300 },
+      // position: { x: 300, y: -300 },
+      position: { x: nodePlacements.row1.x[3], y: nodePlacements.row1.y[0] },
       data: {
         label: techStackNodeLabel(techStackSources.css),
       },
     },
     {
       id: "reactRouter",
-      position: { x: -220, y: -175 },
+      // position: { x: -220, y: -175 },
+      position: { x: nodePlacements.row2.x[0], y: nodePlacements.row2.y[0] },
       data: {
         label: techStackNodeLabel(techStackSources.reactRouter),
       },
     },
     {
       id: "react",
-      position: { x: 0, y: -125 },
+      // position: { x: 0, y: -125 },
+      position: { x: nodePlacements.row2.x[1], y: nodePlacements.row2.y[1] },
       data: {
         label: techStackNodeLabel(techStackSources.react),
       },
     },
     {
       id: "redux",
-      position: { x: 220, y: -175 },
+      // position: { x: 220, y: -175 },
+      position: { x: nodePlacements.row2.x[2], y: nodePlacements.row2.y[0] },
       data: {
         label: techStackNodeLabel(techStackSources.redux),
       },
     },
     {
       id: "python",
-      position: { x: -175, y: -25 },
+      // position: { x: -175, y: -25 },
+      position: { x: nodePlacements.row3.x[0], y: nodePlacements.row3.y[0] },
       data: {
         label: techStackNodeLabel(techStackSources.python),
       },
     },
     {
       id: "flask",
-      position: { x: 0, y: 25 },
+      // position: { x: 0, y: 25 },
+      position: { x: nodePlacements.row3.x[1], y: nodePlacements.row3.y[1] },
       data: {
         label: techStackNodeLabel(techStackSources.flask),
       },
     },
     {
       id: "sqlAlchemy",
-      position: { x: 175, y: -25 },
+      // position: { x: 175, y: -25 },
+      position: { x: nodePlacements.row3.x[2], y: nodePlacements.row3.y[0] },
       data: {
         label: techStackNodeLabel(techStackSources.sqlAlchemy),
       },
     },
     {
       id: "postgres",
-      position: { x: 0, y: 175 },
+      // position: { x: 0, y: -175 },
+      position: { x: nodePlacements.row4.x[0], y: nodePlacements.row4.y[0] },
       data: {},
     },
   ];
@@ -164,7 +195,7 @@ export default function TechStackFlow() {
       techStackSources[node.id as keyof typeof techStackSources],
     );
     if (!node.style) {
-      node.style = { width: 70, height: 70, padding: 10 };
+      node.style = isMobile ? { width: '7rem', height: '7rem', padding: 10 } : { width: '4rem', height: '4rem', padding: '0.5rem' };
     }
     node.data.yearsExperience =
       techStackSources[
@@ -218,7 +249,13 @@ export default function TechStackFlow() {
 
 
   const flowRef = useRef<ReactFlowInstance<TechStackNode, Edge> | null>(null);
-
+  const fitPadding = 0;
+  // const fitPadding = {
+    // top: "0px",
+    // bottom: "200px",
+    // left: "5%",
+    // right: "5%",
+  // } as const;
   useEffect(() => {
     let frameId = 0;
 
@@ -229,7 +266,7 @@ export default function TechStackFlow() {
         if (!flow) return;
 
         const zoom = flow.getZoom();
-        void flow.fitView({ minZoom: zoom, maxZoom: zoom });
+        void flow.fitView({ minZoom: zoom, maxZoom: zoom, padding: fitPadding });
       });
     };
 
@@ -249,7 +286,11 @@ export default function TechStackFlow() {
       </h1>
       {/* <div style={{height: "45rem", width: "auto" }}> */}
       {/* <div style={{height: 'clamp(10vh, 45rem, 90vh)', width: 'clamp(50%, 45rem, 90%)', margin: 'auto'}}> */}
-      <div style={{ width: '100%', height: `clamp(10vh, ${isMobile ? '25rem' : '55rem'}, 75vh)`, position: 'relative', margin: 'auto', }}>
+      <div style={{ width: '100%', 
+      // aspectRatio: '1 / 1',
+        aspectRatio: isMobile ? '1 / 1' : '6.05 / 5',
+        // height: `clamp(10vh, ${isMobile ? '25rem' : '55rem'}, 75vh)`, 
+        position: 'relative', margin: 'auto', }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -258,10 +299,12 @@ export default function TechStackFlow() {
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           // nodeExtent={nodeExtent}
+          // nodeExtent={[[-300, -300], [350, 300]]}
           onInit={(instance) => {
             flowRef.current = instance;
           }}
           fitView
+          fitViewOptions={{ padding: fitPadding }}
           nodesDraggable={!isMobile}
           panOnScroll={false}
           zoomOnScroll={false}
@@ -271,7 +314,11 @@ export default function TechStackFlow() {
           autoPanOnNodeDrag={false}
           // autoPanOnNodeDrag={false}
           // autoPanOnConnect={false}
-          // zoomOnPinch={false}
+          zoomActivationKeyCode={null}
+          onWheelCapture={(event) => {
+            if (event.ctrlKey) event.stopPropagation();
+          }}
+          zoomOnPinch={false}
           colorMode="system"
           className="reactFlowElement"
         >

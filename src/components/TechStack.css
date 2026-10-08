@@ -57,6 +57,11 @@
 
 
 @media (max-width: 768px) {
+   .techStackItemsWrapper {
+      width: 95%;
+      margin: auto;
+      grid-template-columns: repeat(5, minMax(0, 3rem));
+   }
   .techStackItem {
    padding: 0.25rem;
    border-radius: 0.25rem;
