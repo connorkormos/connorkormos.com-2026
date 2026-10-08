@@ -102,7 +102,7 @@ export default function GitHub() {
             position: "relative",
             height: 0,
             width: 0,
-            bottom: `${ !isMobile ? monthLabel !== "Jan" ? "1.5rem" : "calc((4 / 7) * 100% + 1.5rem)" : monthLabel !== 'Jan' ? '1rem': 'calc((4 / 7) * 100% + 1rem)'}`,
+            bottom: `${ !isMobile ? monthLabel !== "Jan" ? "1.75rem" : "calc((4 / 7) * 100% + 1.75rem)" : monthLabel !== 'Jan' ? '1rem': 'calc((4 / 7) * 100% + 1rem)'}`,
             // Bottom is imperfect, but very close for now
           }}
         >
@@ -171,7 +171,8 @@ export default function GitHub() {
         )}
         <span className="textSecondary">
           <a
-            href="https://github.com/connorkormos"
+            href="https://github.com/connorkormos?tab=overview&from=2026-10-01&to=2026-10-07"
+            // href="https://github.com/connorkormos"
             target="_blank"
             rel="noopener noreferrer"
           >
