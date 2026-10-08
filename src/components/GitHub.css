@@ -9,16 +9,11 @@
   position: relative;
   height: fit-content;
   width: 100%;
-  /* width: clamp(50%, 55rem, 80%); */
-  /* width: fit-content; */
   margin: auto;
   padding: 2rem 1rem 1rem 1rem;
-  /* border: 1px solid rgba(249, 250, 251, 0.1); */
   border: 1px solid #444444;
-  /* I just want to make the border more opaque */
   border-radius: 0.5rem;
   background-color: rgba(249, 250, 251, 0.01);
-  /* color: #8c8c8c; */
   color: #B0B0B0;
 }
 
@@ -41,22 +36,26 @@
 .gitHubContributionDay {
   width: 90%;
   aspect-ratio: 1 / 1;
-  /* width: 1.35rem; */
-  /* height: 1.35rem; */
   margin: 1px;
   border-radius: 2px;
-  /* background-color: #ebedf0; */
 }
 
 @media (max-width: 768px) {
   .gitHubContentContainer {
     .textSecondary {
       font-size: 10px;
+      margin: 0.5rem auto 0 auto;
     }
     .gitHubCalendarWrapper {
       padding: 1rem 0.5rem 0.5rem 0.5rem;
       .gitHubWeekDaysWrapper {
         font-size: 10px;
+      }
+      .gitHubContributionWeek {
+        font-size: 10px;
+        .gitHubContributionDay {
+          border-radius: 1px;
+        }
       }
     }
   }
