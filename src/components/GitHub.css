@@ -49,7 +49,15 @@
 }
 
 @media (max-width: 768px) {
-  .textSecondary {
-    font-size: 1rem;
+  .gitHubContentContainer {
+    .textSecondary {
+      font-size: 10px;
+    }
+    .gitHubCalendarWrapper {
+      padding: 1rem 0.5rem 0.5rem 0.5rem;
+      .gitHubWeekDaysWrapper {
+        font-size: 10px;
+      }
+    }
   }
 }

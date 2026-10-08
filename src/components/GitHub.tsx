@@ -14,6 +14,8 @@ type GitHubData = {
 };
 
 export default function GitHub() {
+  const isMobile = window.innerWidth <= 768;
+
   const [gitHubData, setGitHubData] = useState<GitHubData>({
     totalContributions: 0,
     weeks: [],
@@ -100,7 +102,7 @@ export default function GitHub() {
             position: "relative",
             height: 0,
             width: 0,
-            bottom: `${monthLabel !== "Jan" ? "1.5rem" : "70.5%"}`,
+            bottom: `${ !isMobile ? monthLabel !== "Jan" ? "1.5rem" : "70.5%" : monthLabel !== 'Jan' ? '1.25rem': '95%'}`,
             // Bottom is imperfect, but very close for now
           }}
         >

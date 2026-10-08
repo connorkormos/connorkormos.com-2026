@@ -26,3 +26,5 @@ dist-ssr
 
 # Added by me
 .env
+.vercel
+.env*
