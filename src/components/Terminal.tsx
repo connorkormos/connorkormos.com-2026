@@ -18,13 +18,16 @@ export default function Terminal({
   terminalIsExpanded: boolean;
   setTerminalIsExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  console.log("Connor:", Connor);
+
+  const isMobile = window.innerWidth <= 768;
+
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const dragStart = useRef({ x: 0, y: 0 });
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (event.button !== 0) return;
+    if (isMobile) return;
 
     event.currentTarget.setPointerCapture(event.pointerId);
     dragStart.current = {
@@ -36,6 +39,7 @@ export default function Terminal({
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!event.currentTarget.hasPointerCapture(event.pointerId)) return;
+    if (isMobile) return;
 
     setDragOffset({
       x: event.clientX - dragStart.current.x,
@@ -140,7 +144,6 @@ export default function Terminal({
     ).find((key) => normalizeKey(String(key)) === normalizedInput);
     const connorData =
       matchingKey !== undefined ? Connor[matchingKey] : undefined;
-    console.log("Terminal input submitted:", input, connorData);
     setTerminalTextContent((prevContent) => (
       <>
         {prevContent}
@@ -154,7 +157,6 @@ export default function Terminal({
               <>
                 {"["}
                 {connorData.map((item, index) => {
-                  console.log("ITEM", Object.keys(item));
                   return (
                     <div className="terminalOutputLine" key={index}>
                       {typeof item === "object" ? (
@@ -223,7 +225,6 @@ export default function Terminal({
     e: any,
     keyPress: "left" | "right" | "character" | "backspace" | "enter",
   ) => {
-    console.log(e.target.selectionEnd);
 
     if (keyPress === "left" && e.target.selectionEnd > 0) {
       setCaretPosition(e.target.selectionEnd - 1);
@@ -278,7 +279,10 @@ export default function Terminal({
           </div>
           <div
             className="terminalButton green"
-            onClick={() => setTerminalIsExpanded((isExpanded) => !isExpanded)}
+            onClick={() => {
+              if (isMobile) return;
+              setTerminalIsExpanded((isExpanded) => !isExpanded);
+            }}
           >
             <span className="terminalButtonText whiteText">+</span>
           </div>

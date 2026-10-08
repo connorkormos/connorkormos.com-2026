@@ -109,19 +109,6 @@
   overflow-y: scroll;
 }
 
-@media (max-width: 768px) {
-  .terminalContainer, .terminalContainer.expanded {
-    position: relative;
-    width: 100%;
-    font-size: .75rem;
-    /* left: 0; */
-    /* aspect-ratio: auto; */
-    .terminalContent {
-      padding: 0.25rem 0.5rem;
-    }
-  }
-}
-
 .terminalPrompt {
   display: flex;
   margin-right: 0.5rem;
@@ -174,5 +161,20 @@
   50% {
     color: transparent;
     background-color: transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .terminalContainer, .terminalContainer.expanded {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: scroll;
+
+    font-size: .75rem;
+    /* left: 0; */
+    .terminalContent {
+      padding: 0.25rem 0.5rem;
+    }
   }
 }

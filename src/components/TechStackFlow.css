@@ -93,3 +93,9 @@
    border-radius: 1rem;
    z-index: -1;
 } */
+
+@media (max-width: 768px) {
+  .reactFlowElement .react-flow__pane {
+    touch-action: pan-y;
+  }
+}

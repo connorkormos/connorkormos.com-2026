@@ -262,6 +262,7 @@ export default function TechStackFlow() {
             flowRef.current = instance;
           }}
           fitView
+          nodesDraggable={!isMobile}
           panOnScroll={false}
           zoomOnScroll={false}
           preventScrolling={false}

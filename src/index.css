@@ -104,7 +104,7 @@ body::before {
   /* background-color: rgba(18, 18, 18, 0.9); */
   /* background: linear-gradient(var(--background-gradient-color) 0%, var(--background-color) 15%, var(--background-gradient-color) 85%, var(--background-color) 100%); */
   background: radial-gradient(
-    circle at 32.5% 5%,
+    circle at 36% 5%,
     var(--color-main),
     var(--color-main-darkest) 15%,
     var(--background-color) 100%
